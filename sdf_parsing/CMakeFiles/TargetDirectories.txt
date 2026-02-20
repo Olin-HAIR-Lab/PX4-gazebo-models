@@ -1,0 +1,3 @@
+/soil_sampling_master/repos/PX4-Autopilot/Tools/simulation/gz/sdf_parsing/CMakeFiles/check_sdf.dir
+/soil_sampling_master/repos/PX4-Autopilot/Tools/simulation/gz/sdf_parsing/CMakeFiles/edit_cache.dir
+/soil_sampling_master/repos/PX4-Autopilot/Tools/simulation/gz/sdf_parsing/CMakeFiles/rebuild_cache.dir
