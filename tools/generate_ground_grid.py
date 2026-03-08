@@ -12,7 +12,7 @@ def main():
     parser.add_argument("--z-offset", type=float, default=0.005, help="Z offset to prevent z-fighting with main ground (default: 0.005)")
     parser.add_argument("--texture", type=str, default="brown_mud_dry_diff_4k.jpg", help="Texture file name (default: brown_mud_dry_diff_4k.jpg)")
     parser.add_argument("--texture-dir", type=str, default="ground_plane_textures", help="Directory containing the texture file (default: models/ground_plane_textures)")
-    parser.add_argument("--sdf-path", type=str, default="single_rigid_link.sdf", help="Path to the SDF file (default: single_rigid_link.sdf)")
+    parser.add_argument("--sdf-path", type=str, default="farm_single_drone.sdf", help="Path to the SDF file (default: single_rigid_link.sdf)")
     
     args = parser.parse_args()
     

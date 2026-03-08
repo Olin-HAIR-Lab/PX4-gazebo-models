@@ -12,7 +12,7 @@ def main():
     parser.add_argument("--noise-xy", type=float, default=0.05, help="Maximum random noise applied to x and y coordinates (default: 0.05)")
     parser.add_argument("--noise-yaw", type=float, default=3.14159, help="Maximum random noise applied to yaw rotation (default: 3.14159)")
     parser.add_argument("--plant-model", type=str, default="lettuce_bib", help="Plant model name (default: lettuce_bib)")
-    parser.add_argument("--sdf-path", type=str, default="single_rigid_link.sdf", help="Path to the SDF file (default: single_rigid_link.sdf)")
+    parser.add_argument("--sdf-path", type=str, default="farm_single_drone.sdf", help="Path to the SDF file (default: single_rigid_link.sdf)")
 
     
     args = parser.parse_args()
