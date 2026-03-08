@@ -1,0 +1,2667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <world name="single_rigid_link">
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <scene>
+      <grid>false</grid>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1 1</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+             <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <light name="sunUTC" type="directional">
+      <pose>0 0 500 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78</direction>
+      <diffuse>0.904 0.904 0.904 1</diffuse>
+      <specular>0.271 0.271 0.271 1</specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>42.292465</latitude_deg>
+      <longitude_deg>-71.262348</longitude_deg>
+      <elevation>0</elevation>
+    </spherical_coordinates>
+
+
+<model name="swarm">
+
+<link name="ref">
+      <inertial>
+        <pose>10 10 0 0 0 0</pose>
+        <mass>100</mass>
+        <inertia>
+          <ixx>33.33</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>33.33</iyy>
+          <iyz>0</iyz>
+          <izz>50</izz>
+        </inertia>
+      </inertial>
+      <collision name="ref_collision">
+        <pose>10 10 0.5 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>1</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="ref_visual">
+        <pose>10 10 0.5 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>1</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+
+      
+      <include>
+        <uri>aruco_box</uri>
+        <name>load_1</name>
+        <pose>0 0 0.37 0 0 0</pose>
+
+        <experimental:params>
+          <collision element_id="base_link::collision" action="modify">
+            <surface>
+              <contact>
+                <collide_bitmask>0x02</collide_bitmask>
+              </contact>
+            </surface>
+          </collision>
+        </experimental:params>
+      </include>
+
+      <include>
+        <uri>x500_camera_down</uri>
+        <name>x500_1</name>
+        <pose>1.6840770384878083 0.0 .24 0 0 3.141592654</pose>
+      </include>
+      
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_1</name>
+        <pose>0.955 -0.754 0 0 0 1.166</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_2</name>
+        <pose>1.447 -0.819 0 0 0 2.100</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_3</name>
+        <pose>1.786 -0.774 0 0 0 3.139</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_4</name>
+        <pose>2.180 -0.788 0 0 0 -0.088</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_5</name>
+        <pose>2.648 -0.752 0 0 0 -3.058</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_6</name>
+        <pose>3.001 -0.809 0 0 0 -2.397</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_7</name>
+        <pose>3.433 -0.831 0 0 0 -2.598</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_8</name>
+        <pose>3.838 -0.828 0 0 0 0.973</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_9</name>
+        <pose>4.205 -0.814 0 0 0 -1.009</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_10</name>
+        <pose>4.581 -0.768 0 0 0 1.636</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_11</name>
+        <pose>4.963 -0.783 0 0 0 -1.675</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_12</name>
+        <pose>5.399 -0.753 0 0 0 -2.610</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_13</name>
+        <pose>5.764 -0.833 0 0 0 0.197</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_14</name>
+        <pose>6.244 -0.802 0 0 0 1.454</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_15</name>
+        <pose>6.614 -0.817 0 0 0 1.835</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_16</name>
+        <pose>0.986 -0.363 0 0 0 -0.527</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_17</name>
+        <pose>1.360 -0.406 0 0 0 1.770</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_18</name>
+        <pose>1.841 -0.418 0 0 0 1.534</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_19</name>
+        <pose>2.174 -0.446 0 0 0 1.225</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_20</name>
+        <pose>2.632 -0.391 0 0 0 -0.574</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_21</name>
+        <pose>3.019 -0.418 0 0 0 -0.790</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_22</name>
+        <pose>3.424 -0.419 0 0 0 -3.007</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_23</name>
+        <pose>3.755 -0.404 0 0 0 0.095</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_24</name>
+        <pose>4.200 -0.450 0 0 0 0.159</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_25</name>
+        <pose>4.560 -0.433 0 0 0 -1.969</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_26</name>
+        <pose>4.992 -0.394 0 0 0 2.587</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_27</name>
+        <pose>5.366 -0.439 0 0 0 2.387</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_28</name>
+        <pose>5.775 -0.386 0 0 0 -1.794</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_29</name>
+        <pose>6.228 -0.355 0 0 0 0.485</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_30</name>
+        <pose>6.642 -0.427 0 0 0 -1.497</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_31</name>
+        <pose>1.006 0.012 0 0 0 1.183</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_32</name>
+        <pose>1.352 -0.044 0 0 0 0.675</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_33</name>
+        <pose>1.808 -0.038 0 0 0 0.028</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_34</name>
+        <pose>2.160 0.041 0 0 0 -0.383</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_35</name>
+        <pose>2.590 -0.031 0 0 0 1.683</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_36</name>
+        <pose>3.012 0.028 0 0 0 0.841</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_37</name>
+        <pose>3.401 0.008 0 0 0 -2.869</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_38</name>
+        <pose>3.815 -0.017 0 0 0 -0.950</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_39</name>
+        <pose>4.216 -0.022 0 0 0 0.877</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_40</name>
+        <pose>4.571 0.018 0 0 0 -1.764</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_41</name>
+        <pose>5.045 0.015 0 0 0 -2.691</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_42</name>
+        <pose>5.393 0.048 0 0 0 -2.263</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_43</name>
+        <pose>5.835 0.046 0 0 0 0.691</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_44</name>
+        <pose>6.200 -0.017 0 0 0 0.424</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_45</name>
+        <pose>6.589 0.035 0 0 0 -2.975</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_46</name>
+        <pose>1.028 0.394 0 0 0 1.655</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_47</name>
+        <pose>1.404 0.404 0 0 0 2.412</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_48</name>
+        <pose>1.812 0.425 0 0 0 1.006</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_49</name>
+        <pose>2.161 0.362 0 0 0 2.850</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_50</name>
+        <pose>2.608 0.367 0 0 0 -1.952</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_51</name>
+        <pose>2.988 0.422 0 0 0 -0.396</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_52</name>
+        <pose>3.393 0.428 0 0 0 2.039</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_53</name>
+        <pose>3.847 0.442 0 0 0 1.012</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_54</name>
+        <pose>4.155 0.397 0 0 0 1.799</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_55</name>
+        <pose>4.594 0.391 0 0 0 -2.311</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_56</name>
+        <pose>4.993 0.422 0 0 0 0.701</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_57</name>
+        <pose>5.374 0.413 0 0 0 1.348</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_58</name>
+        <pose>5.752 0.390 0 0 0 -2.211</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_59</name>
+        <pose>6.207 0.372 0 0 0 -0.131</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_60</name>
+        <pose>6.620 0.403 0 0 0 -1.308</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_61</name>
+        <pose>1.046 0.841 0 0 0 3.048</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_62</name>
+        <pose>1.361 0.848 0 0 0 -2.653</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_63</name>
+        <pose>1.771 0.778 0 0 0 -1.687</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_64</name>
+        <pose>2.155 0.763 0 0 0 -2.586</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_65</name>
+        <pose>2.624 0.783 0 0 0 -2.198</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_66</name>
+        <pose>3.020 0.766 0 0 0 2.201</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_67</name>
+        <pose>3.420 0.839 0 0 0 -0.511</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_68</name>
+        <pose>3.777 0.800 0 0 0 -0.681</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_69</name>
+        <pose>4.205 0.800 0 0 0 -2.769</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_70</name>
+        <pose>4.611 0.839 0 0 0 0.297</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_71</name>
+        <pose>5.006 0.773 0 0 0 1.101</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_72</name>
+        <pose>5.357 0.756 0 0 0 -1.576</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_73</name>
+        <pose>5.837 0.792 0 0 0 -1.341</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_74</name>
+        <pose>6.214 0.799 0 0 0 1.030</pose>
+      </include>
+      <include>
+        <uri>lettuce_bib</uri>
+        <name>lettuce_bib_75</name>
+        <pose>6.560 0.779 0 0 0 0.610</pose>
+      </include>
+
+
+      
+      <!--
+      <include>
+        <uri>tether_2m</uri>
+        <name>tether_1</name>
+        <pose>0.1 0.0 .4 0 0 0</pose>
+      </include>
+
+      <joint name="joint_load_tether_1" type="fixed">
+        <parent>load_1::base_link</parent>
+        <child>tether_1::element_first</child>
+        <pose>0.1 0.0 0.03 0.0 0.0 0.0</pose>
+      </joint>
+
+      <joint name="joint_tether_1_drone_1" type="fixed">
+        <parent>tether_1::element_last</parent>
+        <child>x500_1::base_link</child>
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+      </joint>
+
+    -->
+    </model>
+
+    <model name="soil_grid">
+      <static>true</static>
+      <link name="link">
+        <visual name="soil_patch_1">
+          <pose>-6.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_2">
+          <pose>-6.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_3">
+          <pose>-6.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_4">
+          <pose>-6.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_5">
+          <pose>-6.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_6">
+          <pose>-6.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_7">
+          <pose>-6.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_8">
+          <pose>-6.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_9">
+          <pose>-6.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_10">
+          <pose>-6.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_11">
+          <pose>-4.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_12">
+          <pose>-4.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_13">
+          <pose>-4.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_14">
+          <pose>-4.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_15">
+          <pose>-4.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_16">
+          <pose>-4.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_17">
+          <pose>-4.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_18">
+          <pose>-4.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_19">
+          <pose>-4.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_20">
+          <pose>-4.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_21">
+          <pose>-2.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_22">
+          <pose>-2.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_23">
+          <pose>-2.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_24">
+          <pose>-2.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_25">
+          <pose>-2.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_26">
+          <pose>-2.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_27">
+          <pose>-2.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_28">
+          <pose>-2.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_29">
+          <pose>-2.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_30">
+          <pose>-2.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_31">
+          <pose>0.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_32">
+          <pose>0.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_33">
+          <pose>0.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_34">
+          <pose>0.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_35">
+          <pose>0.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_36">
+          <pose>0.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_37">
+          <pose>0.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_38">
+          <pose>0.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_39">
+          <pose>0.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_40">
+          <pose>0.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_41">
+          <pose>2.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_42">
+          <pose>2.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_43">
+          <pose>2.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_44">
+          <pose>2.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_45">
+          <pose>2.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_46">
+          <pose>2.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_47">
+          <pose>2.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_48">
+          <pose>2.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_49">
+          <pose>2.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_50">
+          <pose>2.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_51">
+          <pose>4.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_52">
+          <pose>4.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_53">
+          <pose>4.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_54">
+          <pose>4.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_55">
+          <pose>4.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_56">
+          <pose>4.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_57">
+          <pose>4.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_58">
+          <pose>4.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_59">
+          <pose>4.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_60">
+          <pose>4.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_61">
+          <pose>6.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_62">
+          <pose>6.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_63">
+          <pose>6.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_64">
+          <pose>6.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_65">
+          <pose>6.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_66">
+          <pose>6.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_67">
+          <pose>6.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_68">
+          <pose>6.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_69">
+          <pose>6.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_70">
+          <pose>6.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_71">
+          <pose>8.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_72">
+          <pose>8.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_73">
+          <pose>8.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_74">
+          <pose>8.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_75">
+          <pose>8.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_76">
+          <pose>8.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_77">
+          <pose>8.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_78">
+          <pose>8.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_79">
+          <pose>8.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_80">
+          <pose>8.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_81">
+          <pose>10.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_82">
+          <pose>10.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_83">
+          <pose>10.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_84">
+          <pose>10.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_85">
+          <pose>10.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_86">
+          <pose>10.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_87">
+          <pose>10.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_88">
+          <pose>10.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_89">
+          <pose>10.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_90">
+          <pose>10.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_91">
+          <pose>12.000 -9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_92">
+          <pose>12.000 -7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_93">
+          <pose>12.000 -5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_94">
+          <pose>12.000 -3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_95">
+          <pose>12.000 -1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_96">
+          <pose>12.000 1.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_97">
+          <pose>12.000 3.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_98">
+          <pose>12.000 5.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_99">
+          <pose>12.000 7.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name="soil_patch_100">
+          <pose>12.000 9.000 0.005 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.000 2.000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>models://ground_plane_textures/brown_mud_dry_diff_4k.jpg</albedo_map>
+                <roughness>0.9</roughness>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
