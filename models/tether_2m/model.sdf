@@ -35,8 +35,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference> 0 </spring_reference>
           <spring_stiffness> 0 </spring_stiffness>
         </dynamics>
@@ -48,8 +48,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference> 0 </spring_reference>
           <spring_stiffness> 0 </spring_stiffness>
         </dynamics>
@@ -91,8 +91,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -104,8 +104,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -147,8 +147,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -160,8 +160,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -203,8 +203,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -216,8 +216,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -259,8 +259,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -272,8 +272,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -315,8 +315,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -328,8 +328,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -371,8 +371,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -384,8 +384,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -427,8 +427,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -440,8 +440,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -483,8 +483,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -496,8 +496,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -539,8 +539,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -552,8 +552,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -595,8 +595,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -608,8 +608,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -651,8 +651,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -664,8 +664,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -707,8 +707,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -720,8 +720,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -763,8 +763,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -776,8 +776,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -819,8 +819,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>-0.10833078115</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -832,8 +832,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0.0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -875,8 +875,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference> 0 </spring_reference>
           <spring_stiffness> 0 </spring_stiffness>
         </dynamics>
@@ -888,8 +888,8 @@
           <upper>inf</upper>
         </limit>
         <dynamics>
-          <damping>0.002</damping>
-          <friction>0</friction>
+          <damping>0.015</damping>
+          <friction>0.001</friction>
           <spring_reference> 0 </spring_reference>
           <spring_stiffness> 0 </spring_stiffness>
         </dynamics>
