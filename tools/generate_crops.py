@@ -7,12 +7,12 @@ def main():
     parser.add_argument("--rows", type=int, default=15, help="Number of rows (default: 15)")
     parser.add_argument("--cols", type=int, default=5, help="Number of columns (default: 5)")
     parser.add_argument("--spacing-x", type=float, default=0.4, help="Spacing between plants in x-direction (default: 0.4)")
-    parser.add_argument("--spacing-y", type=float, default=0.4, help="Spacing between plants in y-direction (default: 0.4)")
+    parser.add_argument("--spacing-y", type=float, default=1.0, help="Spacing between plants in y-direction (default: 0.4)")
     parser.add_argument("--start-x", type=float, default=1.0, help="Starting x coordinate (default: 1.0)")
     parser.add_argument("--noise-xy", type=float, default=0.05, help="Maximum random noise applied to x and y coordinates (default: 0.05)")
     parser.add_argument("--noise-yaw", type=float, default=3.14159, help="Maximum random noise applied to yaw rotation (default: 3.14159)")
     parser.add_argument("--plant-model", type=str, default="lettuce_bib", help="Plant model name (default: lettuce_bib)")
-    parser.add_argument("--sdf-path", type=str, default="farm_single_drone.sdf", help="Path to the SDF file (default: single_rigid_link.sdf)")
+    parser.add_argument("--sdf-path", type=str, default="default.sdf", help="Path to the SDF file (default: single_rigid_link.sdf)")
 
     
     args = parser.parse_args()
@@ -39,7 +39,8 @@ def main():
       </include>\n"""
             count += 1
 
-    sdf_path = f'repos/PX4-Autopilot/Tools/simulation/gz/worlds/{args.sdf_path}'
+    # sdf_path = f'/repos/PX4-Autopilot/Tools/simulation/gz/worlds/{args.sdf_path}'
+    sdf_path = f'../worlds/{args.sdf_path}'
     
     with open(sdf_path, 'r') as f:
         lines = f.readlines()
