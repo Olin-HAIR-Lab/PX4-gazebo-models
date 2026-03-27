@@ -197,7 +197,6 @@
 
 
       <include>
-      <include>
         <uri>tether_2m</uri>
         <name>tether_1</name>
         <pose>0.1 0.0 .4 0 0 0</pose>
@@ -250,7 +249,6 @@
         <parent>tether_3::element_last</parent>
         <child>x500_3::base_link</child>
         <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>  
-      </joint>
       </joint>
     </model>
 
