@@ -7,6 +7,17 @@
       <real_time_factor>1.0</real_time_factor>
       <real_time_update_rate>250</real_time_update_rate>
     </physics>
+    <physics name="dartsim" type="dartsim">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+      <dart>
+        <solver>
+          <solver_type>pgs</solver_type>
+          <iters>50</iters>
+        </solver>
+      </dart>
+    </physics>
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type="adiabatic"/>
@@ -195,6 +206,8 @@
         <pose>-0.862038519243905 -1.4238124811091277 .24 0 0 0</pose>
       </include>
 
+
+      <include>
       <include>
         <uri>tether_2m</uri>
         <name>tether_1</name>
@@ -248,6 +261,7 @@
         <parent>tether_3::element_last</parent>
         <child>x500_3::base_link</child>
         <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>  
+      </joint>
       </joint>
     </model>
 
